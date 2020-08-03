@@ -1,2 +1,2 @@
-# TerraNova
+# Terranova
 Terraria content mod
