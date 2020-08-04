@@ -4,12 +4,12 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace ExampleMod.NPCs
+namespace Terranova.NPCs
 {
 	// This ModNPC serves as an example of a complete AI example.
 	public class FlutterSlime : ModNPC
 	{
-		public override void SetStaticDefaults() {
+		public override void SetStaticDefaults() { 
 			/DisplayName.SetDefault("Flutter Slime"); // Automatic from .lang files
 			Main.npcFrameCount[npc.type] = 6; // make sure to set this for your modnpcs.
 		}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "e0cwaC+orfMkVK2af1graJMvYuS/0yxyDT61GblVJc4a/wkgo7LzRwiE+Iy4tNKF7bY2wDxoW8m6pOXMeKYhUw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\jiank\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Terranova\\Terranova.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jiank\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}
