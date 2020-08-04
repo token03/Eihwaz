@@ -1,2 +1,2 @@
 # Terranova
-Terraria content mod
+a terraria mod focused on adding content
