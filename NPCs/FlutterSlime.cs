@@ -10,7 +10,7 @@ namespace Terranova.NPCs
 	public class FlutterSlime : ModNPC
 	{
 		public override void SetStaticDefaults() { 
-			/DisplayName.SetDefault("Flutter Slime"); // Automatic from .lang files
+			DisplayName.SetDefault("Flutter Slime"); // Automatic from .lang files
 			Main.npcFrameCount[npc.type] = 6; // make sure to set this for your modnpcs.
 		}
 

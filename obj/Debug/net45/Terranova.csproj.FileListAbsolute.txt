@@ -1,0 +1,4 @@
+C:\Users\jiank\OneDrive\Documents\My Games\Terraria\ModLoader\Mod Sources\Terranova\obj\Debug\net45\Terranova.csprojAssemblyReference.cache
+C:\Users\jiank\OneDrive\Documents\My Games\Terraria\ModLoader\Mod Sources\Terranova\obj\Debug\net45\Terranova.AssemblyInfoInputs.cache
+C:\Users\jiank\OneDrive\Documents\My Games\Terraria\ModLoader\Mod Sources\Terranova\obj\Debug\net45\Terranova.AssemblyInfo.cs
+C:\Users\jiank\OneDrive\Documents\My Games\Terraria\ModLoader\Mod Sources\Terranova\obj\Debug\net45\Terranova.csproj.CoreCompileInputs.cache
