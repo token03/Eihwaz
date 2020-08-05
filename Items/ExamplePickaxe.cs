@@ -3,7 +3,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Terranova.Items
+namespace Eihwaz.Items
 {
 	public class ExamplePickaxe : ModItem
 	{

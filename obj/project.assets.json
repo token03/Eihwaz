@@ -36,11 +36,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\jiank\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Terranova\\Terranova.csproj",
+      "projectUniqueName": "C:\\Users\\jiank\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Eihwaz\\Eihwaz.csproj",
       "projectName": "Terranova",
-      "projectPath": "C:\\Users\\jiank\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Terranova\\Terranova.csproj",
+      "projectPath": "C:\\Users\\jiank\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Eihwaz\\Eihwaz.csproj",
       "packagesPath": "C:\\Users\\jiank\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\jiank\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Terranova\\obj\\",
+      "outputPath": "C:\\Users\\jiank\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Eihwaz\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\jiank\\AppData\\Roaming\\NuGet\\NuGet.Config",

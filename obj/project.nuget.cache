@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e0cwaC+orfMkVK2af1graJMvYuS/0yxyDT61GblVJc4a/wkgo7LzRwiE+Iy4tNKF7bY2wDxoW8m6pOXMeKYhUw==",
+  "dgSpecHash": "wxbMjnJq1HbXMT13TnZexEH/Bs7uQXX5MOSQu0mx+esft8+TSLiz6FJA8IDNizOgwY/aLVV9//lP135xDneclg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jiank\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Terranova\\Terranova.csproj",
+  "projectFilePath": "C:\\Users\\jiank\\OneDrive\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\Eihwaz\\Eihwaz.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jiank\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
   ],
