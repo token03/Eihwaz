@@ -4,7 +4,7 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace Terranova.NPCs
+namespace Eihwaz.NPCs
 {
 	// This ModNPC serves as an example of a complete AI example.
 	public class FlutterSlime : ModNPC
