@@ -15,5 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Items\Placeables\" />
+    <Folder Include="Backgrounds\" />
   </ItemGroup>
 </Project>
