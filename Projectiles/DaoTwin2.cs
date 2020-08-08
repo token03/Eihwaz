@@ -116,8 +116,8 @@ namespace Eihwaz.Projectiles
 
 			projectile.friendly = foundTarget;
 
-				float speed = 8f;
-				float inertia = 20f;
+				float speed = 10f;
+				float inertia = 25f;
 
 				if (foundTarget)
 				{

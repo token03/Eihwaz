@@ -49,6 +49,12 @@ namespace Eihwaz.Projectiles
 		{
 			return true;
 		}
+
+		public float Timer
+        {
+			get => projectile.ai[0];
+			set => projectile.ai[0] = value;
+        }
 		
 		public override void AI()
 		{
@@ -120,25 +126,33 @@ namespace Eihwaz.Projectiles
 
 			projectile.friendly = foundTarget;
 
-			float speed = 8f;
-			float inertia = 20f;
+			float speed = 6f;
+			float inertia = 15f;
 
 			if (foundTarget)
 			{
+				Timer++;
 				Vector2 direction = targetCenter - projectile.Center;
 				direction.Normalize();
 
-				if (distanceFromTarget > 100)
+				if (Timer == 30)
+				{
+					// Shoot every .5 seconds 
+					Projectile.NewProjectile(projectile.Center, direction *= speed, ProjectileID.MiniRetinaLaser, projectile.damage, projectile.knockBack, projectile.owner);
+					Timer = 0;
+				}
+
+				if (distanceFromTarget > 250)
 	            {
-					//Move towards 
-					projectile.velocity *= (speed * direction);
-					Projectile.NewProjectile(projectile.Center, projectile.velocity, ProjectileID.MiniRetinaLaser, projectile.damage, projectile.knockBack, projectile.whoAmI);
+					// Move towards the target
+					direction *= speed;
+					projectile.velocity = (projectile.velocity * (inertia - 1) + direction) / inertia;
 				} 
-				else if(distanceFromTarget <= 100)
+				else if(distanceFromTarget <= 250)
                 {
 					// If too close to the target, back off slightly
-					projectile.velocity *= (speed - 2) * (-(direction/direction));
-					Projectile.NewProjectile(projectile.Center, -projectile.velocity, ProjectileID.MiniRetinaLaser, projectile.damage, projectile.knockBack, projectile.whoAmI);
+					direction *= -speed;
+					projectile.velocity = (projectile.velocity * (inertia - 1) + direction * 0.8f) / inertia;
 				}
 			}
 			else
