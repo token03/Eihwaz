@@ -7,7 +7,7 @@ namespace Eihwaz.Items
     {
         public override void SetStaticDefaults()
         {
-            Tooltip.SetDefault("You feel a chilling sense of dread");
+            Tooltip.SetDefault("'You feel a chilling sense of dread'");
         }
         public override void SetDefaults()
         {

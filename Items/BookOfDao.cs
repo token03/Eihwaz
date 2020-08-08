@@ -44,8 +44,9 @@ namespace Eihwaz.Items
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Ectoplasm, 5);
-            recipe.AddIngredient(ModContent.ItemType<YinEssence>(), 3);
+            recipe.AddIngredient(ItemID.LightShard);
+            recipe.AddIngredient(ItemID.DarkShard);
+            recipe.AddIngredient(ModContent.ItemType<BalanceIngot>(), 15);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }

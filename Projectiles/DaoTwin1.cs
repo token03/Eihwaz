@@ -120,49 +120,63 @@ namespace Eihwaz.Projectiles
 
 			projectile.friendly = foundTarget;
 
-				float speed = 8f;
-				float inertia = 20f;
+			float speed = 8f;
+			float inertia = 20f;
 
-				if (foundTarget)
+			if (foundTarget)
+			{
+				Vector2 direction = targetCenter - projectile.Center;
+				direction.Normalize();
+
+				if (distanceFromTarget > 100)
+	            {
+					//Move towards 
+					projectile.velocity *= (speed * direction);
+					Projectile.NewProjectile(projectile.Center, projectile.velocity, ProjectileID.MiniRetinaLaser, projectile.damage, projectile.knockBack, projectile.whoAmI);
+				} 
+				else if(distanceFromTarget <= 100)
+                {
+					// If too close to the target, back off slightly
+					projectile.velocity *= (speed - 2) * (-(direction/direction));
+					Projectile.NewProjectile(projectile.Center, -projectile.velocity, ProjectileID.MiniRetinaLaser, projectile.damage, projectile.knockBack, projectile.whoAmI);
+				}
+			}
+			else
+			{
+				// Minion doesn't have a target: return to player and idle
+				if (distanceToIdlePosition > 600f)
 				{
-					//Shoots 
+					// Speed up the minion if it's away from the player
+					speed = 12f;
+					inertia = 60f;
+				}
+				else if (distanceToIdlePosition > 2000f)
+				{
+					// Teleport minion to player
+					projectile.position = player.Center;
 				}
 				else
 				{
-					// Minion doesn't have a target: return to player and idle
-					if (distanceToIdlePosition > 600f)
-					{
-						// Speed up the minion if it's away from the player
-						speed = 12f;
-						inertia = 60f;
-					}
-					else if (distanceToIdlePosition > 2000f)
-					{
-						// Teleport minion to player
-						projectile.position = player.Center;
-					}
-					else
-					{
-						// Slow down the minion if closer to the player
-						speed = 4f;
-						inertia = 80f;
-					}
-					if (distanceToIdlePosition > 20f)
-					{
-						// The immediate range around the player (when it passively floats about)
-
-						// This is a simple movement formula using the two parameters and its desired direction to create a "homing" movement
-						vectorToIdlePosition.Normalize();
-						vectorToIdlePosition *= speed;
-						projectile.velocity = (projectile.velocity * (inertia - 1) + vectorToIdlePosition) / inertia;
-					}
-					else if (projectile.velocity == Vector2.Zero)
-					{
-						// If there is a case where it's not moving at all, give it a little "poke"
-						projectile.velocity.X = -0.15f;
-						projectile.velocity.Y = -0.05f;
-					}
+					// Slow down the minion if closer to the player
+					speed = 4f;
+					inertia = 80f;
 				}
+				if (distanceToIdlePosition > 20f)
+				{
+					// The immediate range around the player (when it passively floats about)
+
+					// This is a simple movement formula using the two parameters and its desired direction to create a "homing" movement
+					vectorToIdlePosition.Normalize();
+					vectorToIdlePosition *= speed;
+					projectile.velocity = (projectile.velocity * (inertia - 1) + vectorToIdlePosition) / inertia;
+				}
+				else if (projectile.velocity == Vector2.Zero)
+				{
+					// If there is a case where it's not moving at all, give it a little "poke"
+					projectile.velocity.X = -0.15f;
+					projectile.velocity.Y = -0.05f;
+				}
+			}
 
 			projectile.rotation = projectile.velocity.X * 0.05f;
 
