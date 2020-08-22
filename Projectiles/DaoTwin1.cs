@@ -16,8 +16,7 @@ namespace Eihwaz.Projectiles
 			// This is needed so your minion can properly spawn when summoned and replaced when other minions are summoned
 			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			// Don't mistake this with "if this is true, then it will automatically home". It is just for damage reduction for certain NPCs
-			ProjectileID.Sets.Homing[projectile.type] = true;
-			Main.projFrames[projectile.type] = 2;
+			Main.projFrames[projectile.type] = 9;
 		}
 
 		public override void SetDefaults()
@@ -47,7 +46,7 @@ namespace Eihwaz.Projectiles
 
 		public override bool MinionContactDamage()
 		{
-			return true;
+			return false;
 		}
 
 		public float Timer
@@ -135,10 +134,10 @@ namespace Eihwaz.Projectiles
 				Vector2 direction = targetCenter - projectile.Center;
 				direction.Normalize();
 
-				if (Timer == 30)
+				if (Timer == 10)
 				{
-					// Shoot every .5 seconds 
-					Projectile.NewProjectile(projectile.Center, direction *= speed, ProjectileID.MiniRetinaLaser, projectile.damage, projectile.knockBack, projectile.owner);
+					// Shoot every .25 seconds 
+					Projectile.NewProjectile(projectile.Center, direction * (speed + 20), ModContent.ProjectileType<DaoTwin1Projectile>(), projectile.damage, projectile.knockBack, projectile.owner);
 					Timer = 0;
 				}
 
@@ -150,7 +149,7 @@ namespace Eihwaz.Projectiles
 				} 
 				else if(distanceFromTarget <= 250)
                 {
-					// If too close to the target, back off slightly
+					// If too close to the target, back off
 					direction *= -speed;
 					projectile.velocity = (projectile.velocity * (inertia - 1) + direction * 0.8f) / inertia;
 				}
@@ -194,8 +193,18 @@ namespace Eihwaz.Projectiles
 
 			projectile.rotation = projectile.velocity.X * 0.05f;
 
+			int frameSpeed = 5;
+			projectile.frameCounter++;
+			if (projectile.frameCounter >= frameSpeed)
+			{
+				projectile.frameCounter = 0;
+				projectile.frame++;
+				if (projectile.frame >= Main.projFrames[projectile.type])
+				{
+					projectile.frame = 0;
+				}
+			}
 		}
-
 	}
 }
 	

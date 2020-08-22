@@ -17,7 +17,7 @@ namespace Eihwaz.Projectiles
 			ProjectileID.Sets.MinionSacrificable[projectile.type] = true;
 			// Don't mistake this with "if this is true, then it will automatically home". It is just for damage reduction for certain NPCs
 			ProjectileID.Sets.Homing[projectile.type] = true;
-			Main.projFrames[projectile.type] = 2;
+			Main.projFrames[projectile.type] = 9;
 		}
 
 		public override void SetDefaults()
@@ -116,8 +116,8 @@ namespace Eihwaz.Projectiles
 
 			projectile.friendly = foundTarget;
 
-				float speed = 10f;
-				float inertia = 25f;
+				float speed = 30f;
+				float inertia = 10f;
 
 				if (foundTarget)
 				{
@@ -172,6 +172,17 @@ namespace Eihwaz.Projectiles
 
 			projectile.rotation = projectile.velocity.X * 0.05f;
 
+			int frameSpeed = 5;
+			projectile.frameCounter++;
+			if (projectile.frameCounter >= frameSpeed)
+			{
+				projectile.frameCounter = 0;
+				projectile.frame++;
+				if (projectile.frame >= Main.projFrames[projectile.type])
+				{
+					projectile.frame = 0;
+				}
+			}
 		}
 
 	}

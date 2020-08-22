@@ -4,9 +4,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Eihwaz.Projectiles;
 
-namespace Eihwaz.Items
+namespace Eihwaz.Items.Weapons
 {
-    public class BookOfDao : ModItem
+    public class StaffOfDao : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -20,11 +20,11 @@ namespace Eihwaz.Items
             item.summon = true;
             item.noMelee = true;
 
-            item.width = 40;
-            item.height = 40;
+            item.width = 54;
+            item.height = 54;
             item.useTime = 20;
             item.useAnimation = 20;
-            item.useStyle = ItemUseStyleID.HoldingOut;
+            item.useStyle = ItemUseStyleID.SwingThrow;
             item.value = 10000;
             item.rare = ItemRarityID.Yellow;
             item.UseSound = SoundID.Item44;
@@ -46,7 +46,8 @@ namespace Eihwaz.Items
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.LightShard);
             recipe.AddIngredient(ItemID.DarkShard);
-            recipe.AddIngredient(ModContent.ItemType<BalanceIngot>(), 15);
+            recipe.AddRecipeGroup("Eihwaz:GoldPlatinumBar", 3);
+            recipe.AddIngredient(ModContent.ItemType<BalanceIngot>(), 7);
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
