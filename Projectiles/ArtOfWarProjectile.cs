@@ -32,9 +32,26 @@ namespace Eihwaz.Projectiles
 
 		public override bool OnTileCollide(Vector2 oldVelocity)
 		{
-			projectile.penetrate = -1;
-			projectile.timeLeft = 0;
+			projectile.penetrate--;
+			if (projectile.penetrate <= 0)
+			{
+				projectile.Kill();
+			}
+			else
+			{
+				Collision.HitTiles(projectile.position + projectile.velocity, projectile.velocity, projectile.width, projectile.height);
+				Main.PlaySound(SoundID.Item10, projectile.position);
+				if (projectile.velocity.X != oldVelocity.X)
+				{
+					projectile.velocity.X = -oldVelocity.X;
+				}
+				if (projectile.velocity.Y != oldVelocity.Y)
+				{
+					projectile.velocity.Y = -oldVelocity.Y;
+				}
+			}
 			return false;
 		}
+ 
 	}
 }
